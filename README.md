@@ -1,5 +1,3 @@
-# nlp-adversarial-training
-
 ## 简介
 本项目是在[Chinese-Text-Classification-Pytorch](https://github.com/649453932/Chinese-Text-Classification-Pytorch)基础上添加PGD,Free,FGSM,三种对抗扰动方案
 ，只需要clone本项目
