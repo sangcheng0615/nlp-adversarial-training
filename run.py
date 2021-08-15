@@ -11,6 +11,7 @@ parser.add_argument('--model', type=str, required=True, help='choose a model: Te
 parser.add_argument('--embedding', default='pre_trained', type=str, help='random or pre_trained')
 parser.add_argument('--word', default=False, type=bool, help='True for word, False for char')
 parser.add_argument('--mode', type=str, default='train', required=True, help='train or test')
+parser.add_argument('--emb_name', type=str, default='embedding', help='embedding layer name')
 parser.add_argument('--attack', type=str, help='pgd or fgsm or free')
 parser.add_argument('--attack_iter', type=int, default=3, help='pgd or free attack num')
 parser.add_argument('--epsilon', type=float, default=0.8, help='epsilon')
@@ -54,6 +55,6 @@ if __name__ == '__main__':
         init_network(model)
     print(model.parameters)
     if args.mode == 'train':
-        train(config, model, train_iter, dev_iter, test_iter,attack=args.attack, attack_iter = args.attack_iter, epsilon=args.epsilon, alpha=args.alpha)
+        train(config, model, train_iter, dev_iter, test_iter,emb_name=args.emb_name, attack=args.attack, attack_iter = args.attack_iter, epsilon=args.epsilon, alpha=args.alpha)
     else:
         test(config, model, test_iter)
